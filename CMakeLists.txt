@@ -5,6 +5,7 @@ endif()
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-target_sources(${target_name} PUBLIC FILE_SET ysUtility TYPE HEADERS FILES ysUtility.h)
+target_sources(${target_name} PUBLIC FILE_SET ysUtility TYPE HEADERS FILES ysUtility.hpp)
+target_compile_features(${target_name} PUBLIC cxx_std_20)
 
-install(FILES ysUtility.h DESTINATION ${CMAKE_SOURCE_DIR}/inc)
+install(FILES ysUtility.h DESTINATION ${PROJECT_SOURCE_DIR}/inc)
