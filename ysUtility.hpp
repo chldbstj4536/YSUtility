@@ -53,14 +53,14 @@ protected:
         return std::dynamic_pointer_cast<_Derived>(weak_from_this());
     }
 };
-#define ENABLE_MAKE_SHARED_DECL private: struct enable_make_shared;
+#define ENABLE_MAKE_SHARED_DECL private: struct enable_make_shared
 #define ENABLE_MAKE_SHARED(_CLASS) \
 struct _CLASS::enable_make_shared : public _CLASS\
 {\
 public:\
     template<typename... _Args>\
     enable_make_shared(_Args&&... args) : _CLASS(std::forward<_Args>(args)...) { }\
-};
+}
 
 /**
  * @brief PassKey 패턴에서 어떤 클래스를 통과시킬지 결정하는 클래스
