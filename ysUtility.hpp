@@ -77,7 +77,7 @@ public:\
  * @tparam _Certs 호출 가능한 클래스들
  */
 template<class... _Certs>
-class PassKey
+class PassKey final
 {
 public:
     template <class _Cert>
