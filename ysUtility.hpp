@@ -83,6 +83,12 @@ public:
     template <class _Cert>
     requires (same_as<_Certs, _Cert> || ...)
     PassKey(PassKey<_Cert> const &) {}
+
+    PassKey(PassKey const&) = delete;
+    PassKey(PassKey &&) = delete;
+    ~PassKey() = default;
+    PassKey& operator=(PassKey const&) = delete;
+    PassKey& operator=(PassKey &&) = delete;
 };
 /**
  * @brief PassKey 패턴에서 자신을 인증하는데 사용되는 CRTP 클래스
