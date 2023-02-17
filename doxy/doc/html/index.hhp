@@ -1,0 +1,64 @@
+[OPTIONS]
+Compatibility=1.1
+Full-text search=Yes
+Contents file=index.hhc
+Default Window=main
+Default topic=index.html
+Index file=index.hhk
+Language=0x409 English (United States)
+Title=YSUtility
+
+[WINDOWS]
+main="YSUtility","index.hhc","index.hhk","index.html","index.html",,,,,0x23520,,0x10387e,,,,,,,,0
+
+[FILES]
+annotated.html
+class_pass_key-members.html
+class_pass_key.html
+class_pass_key_3_01___cert_01_4-members.html
+class_pass_key_3_01___cert_01_4.html
+classenable__shared__from__base-members.html
+classenable__shared__from__base.html
+classes.html
+doxygen_8doxy_source.html
+examples.html
+files.html
+functions.html
+functions_func.html
+hierarchy.html
+index.html
+md__d___project__y_s_time_submodules__y_s_design_pattern_submodules__y_s_utility__read_me.html
+pages.html
+passkey_example_8cpp-example.html
+ys_utility_8hpp_source.html
+bc_s.png
+bc_sd.png
+bdwn.png
+closed.png
+doc.png
+docd.png
+doxygen.svg
+folderclosed.png
+folderopen.png
+nav_f.png
+nav_fd.png
+nav_g.png
+nav_h.png
+nav_hd.png
+open.png
+splitbar.png
+splitbard.png
+sync_off.png
+sync_on.png
+tab_a.png
+tab_ad.png
+tab_b.png
+tab_bd.png
+tab_h.png
+tab_hd.png
+tab_s.png
+tab_sd.png
+doxygen.css
+dynsections.js
+jquery.js
+tabs.css
