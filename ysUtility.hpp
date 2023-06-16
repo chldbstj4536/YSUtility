@@ -51,15 +51,6 @@ protected:
     }
 };
 
-#define ENABLE_MAKE_SHARED_DECL private: struct enable_make_shared
-#define ENABLE_MAKE_SHARED(_CLASS) \
-struct _CLASS::enable_make_shared : public _CLASS\
-{\
-public:\
-    template<typename... _Args>\
-    enable_make_shared(_Args&&... args) : _CLASS(std::forward<_Args>(args)...) { }\
-}
-
 /**
  * @class PassKey
  * @brief PassKey 패턴에서 어떤 클래스를 통과시킬지 (허용할지) 결정하는 클래스
@@ -87,7 +78,7 @@ public:
      * @tparam _Cert 제약조건을 만족하는지 검사할 타입
      */
     template <class _Cert>
-    requires (same_as<_Certs, _Cert> || ...)
+    requires (std::same_as<_Certs, _Cert> || ...)
     PassKey(PassKey<_Cert> const &) {}
 
     PassKey(PassKey const&) = delete;
