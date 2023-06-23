@@ -126,7 +126,7 @@ private:
  * 
  * @return const std::mt19937& 난수 생성기
  */
-const std::mt19937& GetGenerator()
+std::mt19937& GetGenerator()
 {
     static std::mt19937 gen{std::random_device{}()};
     return gen;
