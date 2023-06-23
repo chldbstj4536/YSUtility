@@ -136,5 +136,14 @@ int main()
         std::cout << "\n\n";
     }
 
+    // Generate Random Number
+    {
+        std::cout << "============= Random Test =============\n";
+        int randomCount[5]{};
+        for (int i = 0; i < 1000000; ++i)
+            ++randomCount[YS::Random(0, 4)];
+        std::cout << std::format("[0] count : {}\n[1] count : {}\n[2] count : {}\n[3] count : {}\n[4] count : {}\n", randomCount[0], randomCount[1], randomCount[2], randomCount[3], randomCount[4]);
+    }
+
     return 0;
 }

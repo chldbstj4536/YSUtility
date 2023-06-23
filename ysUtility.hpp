@@ -9,6 +9,7 @@
 
 #include <memory>
 #include <concepts>
+#include <random>
 
 #define _YS_BEGIN namespace YS {
 #define _YS_END }
@@ -112,6 +113,50 @@ private:
 
     friend _Cert;
 };
+
+/**
+ * @brief 난수 생성기 얻기
+ * 
+ * mt19937 메르센 트위스터라는 알고리즘 사용
+ * rand의 선형합동방식보다 상관관계가 더 작아서 양질의 난수값 제공
+ * 단 객체의 크기가 커서 (2KB 이상) 메모리가 부족한 시스템에서는 minstd_rand가 적합할 수 있다.
+ * random_device 운영체제 레벨에서 제공하는 진짜 난수를 사용
+ * 단, 의사 난수보다 난수를 생성하는 속도가 매우 느리다.
+ * 따라서 시드값처럼 난수 엔진을 생성하는데 사용하고, 그 이후의 난수열은 난수 엔진으로 생성.
+ * 
+ * @return const std::mt19937& 난수 생성기
+ */
+const std::mt19937& GetGenerator()
+{
+    static std::mt19937 gen{std::random_device{}()};
+    return gen;
+}
+
+/**
+ * @brief 난수를 생성하는 함수
+ * 
+ * @param min 최소 범위
+ * @param max 최대 범위
+ * @return float [min, max]사이의 무작위 수
+ */
+float Random(float min, float max)
+{
+    std::uniform_real_distribution<float> dis(min, max);
+    return dis(GetGenerator());
+}
+
+/**
+ * @brief 난수를 생성하는 함수
+ * 
+ * @param min 최소 범위
+ * @param max 최대 범위
+ * @return int [min, max]사이의 무작위 수
+ */
+int Random(int min, int max)
+{
+    std::uniform_int_distribution<int> dis(min, max);
+    return dis(GetGenerator());
+}
 _YS_END
 
 
